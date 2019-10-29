@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 const StyledVideo = styled.div`
-  height: 100;
+  display: flex;
+  margin-bottom: 50px;
 `;
 
 export default StyledVideo;
