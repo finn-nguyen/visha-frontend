@@ -7,6 +7,8 @@ const StyledNavBar = styled.div`
   height: 70px;
   background-color: #404552;
   box-shadow: 0px 1px 10px #404552;
+  display: flex;
+  justify-content: flex-end;
 `;
 
 export default StyledNavBar;

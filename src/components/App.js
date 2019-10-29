@@ -10,8 +10,8 @@ import StyledAppContainer from "../styles/StyledAppContainer";
 
 const App = () => (
   <StyledAppContainer>
-    <NavBar />
     <BrowserRouter>
+      <NavBar />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/signup" component={Signup} />
