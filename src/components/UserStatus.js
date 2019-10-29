@@ -1,39 +1,12 @@
 import React from "react";
-import {
-  StyledForm,
-  StyledInput,
-  StyledSubmitButton
-} from "../styles/StyledForm";
-import useLogin from "../hooks/useLogin";
+import Login from "./Login";
+import Profile from "./Profile"
+import { useAuth } from "../contexts/auth"
 
-const Login = () => {
-  const submitForm = () => {
-    console.log(inputs.username, inputs.password);
-  };
-  const { inputs, handleInputChange, handleSubmit } = useLogin(submitForm);
-  return (
-    <StyledForm>
-      <StyledInput
-        name="username"
-        placeholder="username"
-        type="text"
-        onChange={handleInputChange}
-        value={inputs.email}
-        required
-      />
-      <StyledInput
-        name="password"
-        placeholder="password"
-        type="password"
-        onChange={handleInputChange}
-        value={inputs.email}
-        required
-      />
-      <StyledSubmitButton onClick={handleSubmit}>
-        Login/Register
-      </StyledSubmitButton>
-    </StyledForm>
-  );
+const UserStatus = () => {
+  const { auth } = useAuth()
+  console.log({auth})
+  return auth ? <Profile /> : <Login />
 };
 
-export default Login;
+export default UserStatus;

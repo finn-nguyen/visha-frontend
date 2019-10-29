@@ -16,13 +16,17 @@ const StyledInput = styled.input`
   margin-right: 15px;
 `;
 
-const StyledSubmitButton = styled.button`
+const StyledButton = styled.button`
   height: 33px;
   width: 100%;
   font-size: 16px;
   font-weight: 500;
   background-color: #7c818c;
   outline: none;
+  color: white;
+  :hover {
+    cursor: pointer;
+  }
 `;
 
-export { StyledForm, StyledInput, StyledSubmitButton };
+export { StyledForm, StyledInput, StyledButton };

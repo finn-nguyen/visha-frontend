@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import StyledVideoList from "../styles/StyledVideoList";
-import Video from "../components/Video";
+import Video from "./Video";
 import useVideosApis from "../hooks/useVideosApis";
 
 const Videos = () => {
