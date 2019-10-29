@@ -5,12 +5,10 @@ import { fetchVideos } from "../requests";
 
 const Videos = () => {
   const [pagination, setPagination] = useState({ page: 1 });
-  const [shouldLoadVideo, setShouldLoadVideo] = useState(true);
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    async function fetchVideosData() {
-      setShouldLoadVideo(false);
+    const fetchVideosData = async () => {
       try {
         const { records, pagination: videoPagination } = await fetchVideos(
           pagination.page
@@ -22,9 +20,9 @@ const Videos = () => {
       } catch (error) {
         console.log({ error });
       }
-    }
-    shouldLoadVideo && fetchVideosData();
-  });
+    };
+    fetchVideosData();
+  }, []);
 
   return (
     <StyledVideoList>
