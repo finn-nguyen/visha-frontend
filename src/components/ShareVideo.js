@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import {
   StyledShareVideo,
   StyledShareVideoContainer,
@@ -7,16 +8,33 @@ import {
   StyledShareVideoInput,
   StyledShareVideoLabel
 } from "../styles/StyledShareVideo";
+import useForm from "../hooks/useLogin";
+import { shareVideo } from "../requests";
 
 const ShareVideo = () => {
+  const history = useHistory();
+  const submitLink = async () => {
+    await shareVideo(inputs.link);
+    history.push("/");
+  };
+  const { inputs, handleInputChange, handleSubmit } = useForm(submitLink);
   return (
     <StyledShareVideo>
       <StyledShareVideoContainer>
         <StyledShareVideoRow>
           <StyledShareVideoLabel>Youtube URL:</StyledShareVideoLabel>
-          <StyledShareVideoInput />
+          <StyledShareVideoInput
+            name="link"
+            placeholder="Youtube link"
+            type="text"
+            onChange={handleInputChange}
+            value={inputs.link || ""}
+            required
+          />
         </StyledShareVideoRow>
-        <StyledShareVideoButton>Share</StyledShareVideoButton>
+        <StyledShareVideoButton onClick={handleSubmit}>
+          Share
+        </StyledShareVideoButton>
       </StyledShareVideoContainer>
     </StyledShareVideo>
   );

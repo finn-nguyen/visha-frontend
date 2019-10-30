@@ -1,4 +1,3 @@
-
 export const fetchVideos = async page => {
   const response = await fetch(`http://localhost:5000/videos?page=${page}`, {
     method: "GET",
@@ -17,18 +16,32 @@ export const login = async (username, password) => {
       "Content-Type": "application/json"
     }),
     body: JSON.stringify({
-      user: { username, password}
+      user: { username, password }
     })
-  })
-  if(response.status === 201) {
+  });
+  if (response.status === 201) {
     const jsonData = await response.json();
-    return jsonData
+    return jsonData;
   }
-  return null
-}
-
+  return null;
+};
 
 export const logout = () => {
-  sessionStorage.removeItem("token")
-  sessionStorage.removeItem("username")
-}
+  sessionStorage.removeItem("token");
+  sessionStorage.removeItem("username");
+};
+
+export const shareVideo = async link => {
+  const response = await fetch(`http://localhost:5000/videos`, {
+    method: "POST",
+    headers: new Headers({
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`
+    }),
+    body: JSON.stringify({
+      video: { link, user_id: localStorage.getItem("user_id") }
+    })
+  });
+  const jsonData = await response.json();
+  return jsonData;
+};
