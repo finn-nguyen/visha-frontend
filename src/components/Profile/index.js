@@ -9,7 +9,7 @@ import {
 } from "../styles/StyledProfile";
 
 const Profile = () => {
-  const { setAuth } = useAuth();
+  const { auth, setAuth } = useAuth();
 
   const handleLogout = () => {
     setAuth();
@@ -17,7 +17,7 @@ const Profile = () => {
 
   return (
     <StyledProfile>
-      <StyledName>{`Welcome`}</StyledName>
+      <StyledName>{`Welcome, ${auth.username.toUpperCase()}`}</StyledName>
       <StyledShareMovie>
         <Link to="/share">Share a movie</Link>
       </StyledShareMovie>
