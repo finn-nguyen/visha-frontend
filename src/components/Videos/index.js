@@ -11,10 +11,9 @@ const Videos = () => {
   });
 
   function handleScroll() {
-    const list = document.getElementById("list");
     if (
-      window.innerHeight + window.scrollY <=
-      list.clientHeight + list.offsetTop
+      window.innerHeight + document.documentElement.scrollTop >=
+      document.body.scrollHeight
     ) {
       if (!isLoading) {
         page + 1 <= total && setPage(page + 1);
