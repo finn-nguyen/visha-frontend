@@ -1,17 +1,22 @@
 import React from "react";
 import Player from "./Player";
-import StyledVideo from "../styles/StyledVideo";
-import StyledVideoContent from "../styles/StyledVideoContent";
-import StyledVideoTitle from "../styles/StyledVideoTitle";
-import StyledVideoDescription from "../styles/StyledVideoDescription";
+import {
+  StyledVideo,
+  StyledVideoContent,
+  StyledVideoTitle,
+  StyledVideoDescription,
+  StyledText
+} from "../styles/StyledVideo";
 
-const Video = ({ title, description, views, link }) => (
+const Video = ({ title, description, views, link, user }) => (
   <StyledVideo>
     <Player url={link} />
     <StyledVideoContent>
       <StyledVideoTitle>{title}</StyledVideoTitle>
+      <StyledText>{`Shared by: ${user.username.toUpperCase()}, ${views ||
+        0} views`}</StyledText>
+      <StyledText>Description:</StyledText>
       <StyledVideoDescription>{description}</StyledVideoDescription>
-      <div>{views}</div>
     </StyledVideoContent>
   </StyledVideo>
 );
