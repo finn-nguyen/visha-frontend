@@ -1,5 +1,7 @@
+const BASE_API = process.env.REACT_APP_BASE_API || "http://localhost:5000";
+
 export const fetchVideos = async page => {
-  const response = await fetch(`http://localhost:5000/videos?page=${page}`, {
+  const response = await fetch(`${BASE_API}/videos?page=${page}`, {
     method: "GET",
     headers: new Headers({
       "Content-Type": "application/json"
@@ -10,7 +12,7 @@ export const fetchVideos = async page => {
 };
 
 export const login = async (username, password) => {
-  const response = await fetch(`http://localhost:5000/login`, {
+  const response = await fetch(`${BASE_API}/login`, {
     method: "POST",
     headers: new Headers({
       "Content-Type": "application/json"
@@ -32,7 +34,7 @@ export const logout = () => {
 };
 
 export const shareVideo = async link => {
-  const response = await fetch(`http://localhost:5000/videos`, {
+  const response = await fetch(`${BASE_API}/videos`, {
     method: "POST",
     headers: new Headers({
       "Content-Type": "application/json",
