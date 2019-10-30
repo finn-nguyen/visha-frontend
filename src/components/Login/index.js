@@ -1,22 +1,18 @@
 import React from "react";
-import { Redirect } from "react-router-dom"
-import {
-  StyledForm,
-  StyledInput,
-  StyledButton
-} from "../styles/StyledForm";
-import useLogin from "../hooks/useLogin";
-import { login } from "../requests"
-import { useAuth } from "../contexts/auth"
+import { Redirect } from "react-router-dom";
+import { StyledForm, StyledInput, StyledButton } from "../styles/StyledForm";
+import useLogin from "../../hooks/useLogin";
+import { login } from "../../requests";
+import { useAuth } from "../../contexts/auth";
 
 const Login = () => {
   const { auth, setAuth } = useAuth();
   const submitForm = async () => {
-    const auth = await login(inputs.username, inputs.password)
-    setAuth(auth)
+    const auth = await login(inputs.username, inputs.password);
+    setAuth(auth);
   };
   const { inputs, handleInputChange, handleSubmit } = useLogin(submitForm);
-  if(auth && auth.username) return <Redirect to="/" />
+  if (auth && auth.username) return <Redirect to="/" />;
   return (
     <StyledForm>
       <StyledInput
@@ -35,9 +31,7 @@ const Login = () => {
         value={inputs.email}
         required
       />
-      <StyledButton onClick={handleSubmit}>
-        Login / Register{" "}
-      </StyledButton>
+      <StyledButton onClick={handleSubmit}>Login / Register </StyledButton>
     </StyledForm>
   );
 };

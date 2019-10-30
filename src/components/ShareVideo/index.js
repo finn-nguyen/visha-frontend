@@ -8,8 +8,8 @@ import {
   StyledShareVideoInput,
   StyledShareVideoLabel
 } from "../styles/StyledShareVideo";
-import useForm from "../hooks/useLogin";
-import { shareVideo } from "../requests";
+import useForm from "../../hooks/useLogin";
+import { shareVideo } from "../../requests";
 
 const ShareVideo = () => {
   const history = useHistory();

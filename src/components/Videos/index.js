@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import StyledVideoList from "../styles/StyledVideoList";
-import Video from "./Video";
-import useVideosApis from "../hooks/useVideosApis";
+import Video from "../Video";
+import useVideosApis from "../../hooks/useVideosApis";
 
 const Videos = () => {
   const { total, page, setPage, videos, isLoading } = useVideosApis();
